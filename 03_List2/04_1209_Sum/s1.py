@@ -4,7 +4,7 @@ sys.stdin = open('input.txt')
 t = 10
 for tc in range(1, t+1):
 # 0. 입력값 받기
-    t = input()
+    n = input()
     arr = [list(map(int, input().split())) for _ in range(100)]
 
 # 초기 max값 설정
