@@ -15,7 +15,7 @@ for tc in range(1, t+1):
     numbers = list(map(int, input().split()))
 
 # 1. 일단 리스트를 정렬한다(버블 정렬)
-    for i in range(n-1, 1, -1): #9 (마지막 값부터)
+    for i in range(n-1, 0, -1): #9 (마지막 값부터)
         for j in range(i): #j= 0 ~ 8
             if numbers[j] > numbers[j+1]: #0과 1칸 비교
                 numbers[j], numbers[j+1] = numbers[j+1], numbers[j] #앞에 있는 값이 더 크면 두값의 자리를 바꾼다
@@ -33,7 +33,6 @@ for tc in range(1, t+1):
         max_list += [numbers[l]]
     max_list = max_list[::-1] #들여쓰기가 제일어렵다
     #[98, 97, 88, 75, 71, 69, 64, 62, 60, 59]
-    print(max_list)
 
     # 3. 큰 수와 작은 수를 번갈아가며 하나의 리스트에 담는다
     special_list = [0] * n

@@ -1,33 +1,37 @@
 import sys
 sys.stdin = open('sample_input.txt')
 
+'''
+아이디어
+1. 집합 A의 부분 집합 중 N개의 원소를 갖고 있는 것들을 찾는다(모든 부분집합 탐색)
+2. 그것들의 합을 구한다 
+3. 원소의 합이 K인 부분집합의 개수를 출력
+'''
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 t = int(input())
-arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 for tc in range(1, t+1):
     n, k = input().split()
     n = int(n)
-    k: int = int(k)
-    m = len(arr) #원소의 개수
+    k = int(k)
 
-# 부분집합의 개수만큼 반복 & 모든 부분집합 검색
+    m = len(numbers)
+    cnt = 0 #조건에 만족하는 부분집합 개수
+
+# 1. 부분집합의 개수만큼 반복
     for i in range(1 << m):
-        subset = [] #부분집합을 담을 리스트
-        cnt = 0 #부분집합의 원소가 n개임을 확인하기 위함
-        sum_s = 0 #n개의 원소들의 합
+        sum_subset = 0
 
-        for j in range(m): #j = 0부터 m-1까지 인덱스로 이용(arr의 값)
-            if i & (1 << j): #i의 j번째 비트가 i이면(부분집합에 포함되면)
-                subset.append(arr[j]) #부분집합 리스트에 원소로 넣는다
-                cnt += 1 #넣을때마다 count함
+# 2. 모든 부분집합 탐색
+        for j in range(m):
+            if i & (1 << j): #모든 부분집합
+                sum_subset += numbers[j] #부분집합을 다 담아라
+                cnt += 1
 
-                if cnt == n: #원소가 n개가 되면
-                    for l in range(n): #n개의 원소들을
-                        sum_s += subset[l] #sum_s에 차례로 더해 합을 구한다
-
-        if sum_s == k: #합이 k라면 1출력
-            print(f'#{tc} 1')
-            break
-    else: #아니라면 0출력
+# 4. 조건에 만족하면
+            if cnt == n: #부분집합의 개수가 3개일때
+                if sum_subset == k:
+                    print(f'#{tc} 1')
+                    break
+    else:
         print(f'#{tc} 0')
-
