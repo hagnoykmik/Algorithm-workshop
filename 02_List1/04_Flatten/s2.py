@@ -1,5 +1,3 @@
-#실패코드
-
 import sys
 sys.stdin = open('input.txt')
 
@@ -14,15 +12,12 @@ for tc in range(1, 11):
             if arr[j] < arr[j+1]:
                 arr[j], arr[j+1] = arr[j+1], arr[j]
 # 2. 덤프하기
-    for k in range(100):  # 맨 왼쪽값(max)과 오른쪽값(min)의 인덱스 합은 99
-        while arr[k] - arr[99-k] > 1: #1보다 크게 차이나면 덤프 횟수만큼 진행
-            arr[k] -= 1
-            arr[99-k] += 1
-            n -= 1
-            if n == 0: # n이 0이되면 종료....가 되나?
-               break
-        if
-    print(arr)
+    while n > 0:  #덤프 횟수만큼 반복(덤프가 0이될때까지)
+        arr.sort(reverse=True) #덤프할때마다 재정렬(max->min)
+        arr[0] -= 1
+        arr[-1] += 1
+        n -= 1
+
 # 3. 덤프 진행 후 새로운 최고점과 최저점의 차이 반환
     arr.sort(reverse=True) #내림차순 정렬
     dump = arr[0] - arr[-1] #최고점과 최저점 차이 구하기
