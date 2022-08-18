@@ -13,7 +13,7 @@ my_stack.pop()
 
 # peek
 print(my_stack[-1])
-
+print(my_stack)
 # is_empty
 if not my_stack:  #?
     print('스택이 비었습니다.')
