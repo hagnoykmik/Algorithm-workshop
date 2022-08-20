@@ -9,12 +9,17 @@ for tc in range(1, t + 1):
     board = [list(map(int, input().split())) for _ in range(n)]
 
     # m x m 범위를 돌면서 fly의 값을 더한다
+    cnt = 0  # 행이 바뀔 때 초기화
+    max_c = 0
 
-    cnt = 0
+    for r in range(n):
+        for c in range(n):
+            for i in range(n-m+1):
+                for j in range(n-m+1):
+                    cnt += board[i][j]
 
-    for r in range(m-1, 2*m-1):  # m-1부터 m-1+m까지
-        for c in range(m-1, 2*m-1):
-            if 0 <= r < n and 0 <= c < n:
-                cnt += board[r][c]
+    # 최대값을 구한다
+    if max_c < cnt:
+        max_c = cnt
 
-    print(f'#{tc} {cnt}')
+    print(f'#{tc} {max_c}')
