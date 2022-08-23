@@ -4,7 +4,6 @@ sys.stdin = open('')
 t = int(input())
 for tc in range(1, t + 1):
     word = input()
-    result = 0
     stack = []
 
     # 1. 피연산자는 스택에 push

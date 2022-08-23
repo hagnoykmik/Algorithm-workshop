@@ -1,10 +1,13 @@
-def func():
-    print(f'함수에서 a의 id는 {id(a)}')
-    print(f'함수에서 x의 값{a}')
+n = int(input())
+arr = [[0] * n for _ in range(n)]
+a = n**2 + 1
 
+for i in range(n):
+    for j in range(n):
+        a += 1
+        arr[n-i-1][j] += a
 
-a = [1, 2, 3]
-func(a)
-
-print(f'함수에서 a의 id는 {id(a)}')
-print(f'함수에서 x의 값{a}')
+for i in range(n):
+    for j in range(n):
+        print(arr[j][i], end=' ')
+    print()
