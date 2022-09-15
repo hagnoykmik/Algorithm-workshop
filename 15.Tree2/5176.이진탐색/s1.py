@@ -5,7 +5,7 @@ t = int(input())
 for tc in range(1, t+1):
 
     # root에서 탐색 시작
-    def bst(num):
+    def bst(num):hh
 
 
 
