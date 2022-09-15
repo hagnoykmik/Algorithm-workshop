@@ -7,8 +7,10 @@ for tc in range(1, 11):
     def inorder(t):
         if t > 0:
             inorder(ch_l[t])
-            print(t, end='')
-            stack.append(value[t])
+            if ch_l[t] in '/*-+':
+
+            else:
+                stack.append(value[t])
             inorder(ch_r[t])
 
 
