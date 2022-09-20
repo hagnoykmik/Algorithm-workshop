@@ -1,15 +1,16 @@
 import sys
 sys.stdin = open('sample_input.txt')
 
+
+def traverse(v):
+    if v <= n:
+        print(n)
+        traverse(v * 2)
+        traverse(v * 2 + 1)
+
+
 t = int(input())
 for tc in range(1, 11):
-
-    def traverse(v):
-        if v <= n:
-            visit(n)
-            traverse(v * 2)
-            traverse(v * 2 + 1)
-
     n, m, l = map(int, input().split())
 
     left = [0] * (n + 1)
