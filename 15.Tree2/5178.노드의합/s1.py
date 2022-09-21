@@ -1,29 +1,20 @@
 import sys
 sys.stdin = open('sample_input.txt')
 
-
-def traverse(v):
-    if v <= n:
-        print(n)
-        traverse(v * 2)
-        traverse(v * 2 + 1)
-
-
 t = int(input())
 for tc in range(1, 11):
+    # 노드 개수, 리프 노드 개수, 출력할 노드 번호
     n, m, l = map(int, input().split())
+    nods = [0] * (n + 2)
 
-    left = [0] * (n + 1)
-    right = [0] * (n + 1)
+    # 리프 노드에 값 채우기
+    for _ in range(m):
+        nod, num = map(int, input().split())
+        nods[nod] = num
 
-    for i in range(m):
-        c, v = map(int, input().split())
+    # 자식 노드 값으로 부모 노드의 값 구하기
+    for i in range(n, 0, -1):
+        if nods[i] == 0:
+            nods[i] = nods[2 * i] + nods[2 * i + 1]
 
-        p = c // 2
-
-        if left[p] == 0:
-            left[p] = c
-        else:
-            right[p] = c
-
-    traverse(1)
+    print(f'#{tc} {nods[l]}')
