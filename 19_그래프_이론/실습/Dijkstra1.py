@@ -1,8 +1,10 @@
 # 1) 일반적인 다익스트라 알고리즘
 
+
 def dijkstra(start):
-    visited = [False] * (n + 1)  # 방문 처리 리스트(최단 거리가 확정된 정점)
-    visited[start] = True
+    # 초기 설정
+    visited = [False] * (n + 1)
+    visited[start] = True  # 방문 처리 (최단 거리가 확정된 정점)
     distance[start] = 0
 
     # 시작 정점과 인접한 정점에 대해 최단 거리 초기화
