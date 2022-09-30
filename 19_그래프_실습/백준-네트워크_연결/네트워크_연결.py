@@ -27,11 +27,13 @@ for c, x, y in network:
     if x_root != y_root:
         parent[y_root] = x_root
         cost += c
+        counts += 1
 
         # 모든 정점을 다 연결했으면 종료
         if counts >= n - 1:
             break
 
+print(counts)
 print(cost)
 
 

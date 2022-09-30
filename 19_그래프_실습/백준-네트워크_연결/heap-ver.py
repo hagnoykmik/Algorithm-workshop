@@ -1,6 +1,7 @@
 from heapq import heappush, heappop
 
-
+안녕하세요~
+다녀갑니다~~~
 def prim(start):
     visited = [False] * (n + 1)
     heap = [(0, start)]
