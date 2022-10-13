@@ -1,4 +1,3 @@
-from pyexpat import model
 from django.db import models
 
 # 스키마 구성 - Class형태로 구성
