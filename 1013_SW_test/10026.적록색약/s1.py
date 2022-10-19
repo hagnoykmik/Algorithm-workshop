@@ -1,4 +1,7 @@
 # 일반인
+import sys
+sys.stdin = open('input.txt')
+
 def search(x, y, color):
     visited[x][y] = True
 
@@ -11,6 +14,7 @@ def search(x, y, color):
 
         if 0 <= nx < n and 0 <= ny < n and area[nx][ny] == color:
             search(nx, ny, color)
+            visited[x][y] = False
 
 
 # 상하좌우

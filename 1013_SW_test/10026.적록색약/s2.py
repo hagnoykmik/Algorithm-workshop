@@ -1,5 +1,6 @@
 # 실패코드 (시간 초과)
-
+import sys
+sys.stdin = open('input.txt')
 # 적녹색맹
 def rgw(x, y, color):
     area[x][y] = 'O'
@@ -9,22 +10,24 @@ def rgw(x, y, color):
         ny = y + dy[i]
 
         if 0 <= nx < n and 0 <= ny < n and area[nx][ny] == color:
-            rgw(nx, ny, color)
+            x, y = nx, ny
+
 
 
 # 일반인
 def search(x, y, color):
-    if color == 'B':
-        area[x][y] = 0
-    else:
-        area[x][y] = 1
+    while area[x][y] == color:
+        if color == 'B':
+            area[x][y] = 0
+        else:  # R, G
+            area[x][y] = 1
 
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
 
-        if 0 <= nx < n and 0 <= ny < n and area[nx][ny] == color:
-            search(nx, ny, color)
+            if 0 <= nx < n and 0 <= ny < n and area[nx][ny] == color:
+                x, y = nx, ny
 
 
 # 상하좌우
